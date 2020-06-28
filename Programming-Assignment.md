@@ -53,19 +53,21 @@ ggplot(stepsperday, aes(x = steps)) +
 steps taken per day
 
 ``` r
-meanSteps <- mean(activity$steps, na.rm = TRUE)
-medianSteps <- median(activity$steps, na.rm = TRUE)
+stepseachday <- tapply(activity$steps, activity$date, sum, na.rm=TRUE)
 
+meanSteps <- mean(stepseachday)
+medianSteps <- median(stepseachday)
+  
 meanSteps
 ```
 
-    ## [1] 37.3826
+    ## [1] 9354.23
 
 ``` r
 medianSteps
 ```
 
-    ## [1] 0
+    ## [1] 10395
 
 # 2\. What is the average daily activity pattern?
 
